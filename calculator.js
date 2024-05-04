@@ -1,8 +1,14 @@
+// Variable declarations
+// Event Listeners
+// 
+const zeroDigit = document.querySelector("#zero-key");
+const oneDigit = document.querySelector("#one-key");
+
 // Math operations
 function add(numberOne, numberTwo) {
     return numberOne + numberTwo;
 }
-
+console.log(add(5,3));
 function subtract(numberOne, numberTwo) {
     return numberOne - numberTwo;
 }
@@ -18,6 +24,24 @@ function divide(numberOne, numberTwo) {
     return numberOne / numberTwo;
 }
 
+function operate (numberOne, numberTwo, operator) {
+    let result;
+    if (operator === "add") {
+        result = add(numberOne, numberTwo);
+    }
+    if (operator === "subtract") {
+        result = subtract(numberOne, numberTwo);
+    }
+    if (operator === "multiply") {
+        result = multiply(numberOne, numberTwo);
+    }
+    if (operator === "divide") {
+        result = divide(numberOne, numberTwo);
+    }
+
+}
+
+
 
 // Exports for testing
-module.exports = {add, subtract, multiply, divide};
+export = {add, subtract, multiply, divide};
