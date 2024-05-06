@@ -17,6 +17,12 @@ const eightDigit = document.querySelector("#eight-key");
 const nineDigit = document.querySelector("#nine-key");
 const decimalKey = document.querySelector("#decimal-key");
 const plusMinusKey = document.querySelector("#plus-minus-key");
+const addKey = document.querySelector("#add-key");
+const subtractKey = document.querySelector("#subtract-key");
+const multiplyKey = document.querySelector("#multiply-key");
+const divideKey = document.querySelector("#divide-key");
+const equalsKey = document.querySelector("#equals-key");
+
 
 // TODO: prevent leading 0 unless second character is a "."
 zeroDigit.addEventListener("click", function (e) {
@@ -28,12 +34,119 @@ zeroDigit.addEventListener("click", function (e) {
 oneDigit.addEventListener("click", function (e) {
     if (operator == "") {
         numberOne = String(numberOne) + "1";
-        console.log(numberOne);
+    } else {
+        numberTwo = String(numberTwo) + "1";
     }
+    console.log(numberOne);
+    console.log(numberTwo);
 });
 
+twoDigit.addEventListener("click", function (e) {
+    if (operator == "") {
+        numberOne = String(numberOne) + "2";
+    } else {
+        numberTwo = String(numberTwo) + "2";
+    }
+    console.log(numberOne);
+    console.log(numberTwo);
+});
 
-console.log(add(5,3));
+threeDigit.addEventListener("click", function (e) {
+    if (operator == "") {
+        numberOne = String(numberOne) + "3";
+    } else {
+        numberTwo = String(numberTwo) + "3";
+    }
+    console.log(numberOne);
+    console.log(numberTwo);
+});
+
+fourDigit.addEventListener("click", function (e) {
+    if (operator == "") {
+        numberOne = String(numberOne) + "4";
+    } else {
+        numberTwo = String(numberTwo) + "4";
+    }
+    console.log(numberOne);
+    console.log(numberTwo);
+});
+
+fiveDigit.addEventListener("click", function (e) {
+    if (operator == "") {
+        numberOne = String(numberOne) + "5";
+    } else {
+        numberTwo = String(numberTwo) + "5";
+    }
+    console.log(numberOne);
+    console.log(numberTwo);
+});
+
+sixDigit.addEventListener("click", function (e) {
+    if (operator == "") {
+        numberOne = String(numberOne) + "6";
+    } else {
+        numberTwo = String(numberTwo) + "6";
+    }
+    console.log(numberOne);
+    console.log(numberTwo);
+});
+
+sevenDigit.addEventListener("click", function (e) {
+    if (operator == "") {
+        numberOne = String(numberOne) + "7";
+    } else {
+        numberTwo = String(numberTwo) + "7";
+    }
+    console.log(numberOne);
+    console.log(numberTwo);
+});
+
+eightDigit.addEventListener("click", function (e) {
+    if (operator == "") {
+        numberOne = String(numberOne) + "8";
+    } else {
+        numberTwo = String(numberTwo) + "8";
+    }
+    console.log(numberOne);
+    console.log(numberTwo);
+});
+
+nineDigit.addEventListener("click", function (e) {
+    if (operator == "") {
+        numberOne = String(numberOne) + "9";
+    } else {
+        numberTwo = String(numberTwo) + "9";
+    }
+    console.log(numberOne);
+    console.log(numberTwo);
+});
+
+// operations keys
+
+
+
+addKey.addEventListener("click", function (e) {
+    if (operator == "") {
+        operator = "add";
+    } else {
+        console.log("invalid input");
+        // possible remove this and just have it change the operator as long as numberOne is not ""
+    }
+    console.log(numberOne);
+    console.log(operator);
+    console.log(numberTwo);
+});
+
+equalsKey.addEventListener("click", function (e) {
+    if (operator != "" && numberOne != "" && numberTwo != "") {
+        [numberOne, numberTwo, operator] = operate(parseFloat(numberOne), parseFloat(numberTwo), operator);
+    } else {
+        console.log("invalid input");
+        //possibly set numberTwo = numberOne if numberTwo ==""
+    }
+    
+});
+
 // Math operations
 function add(numberOne, numberTwo) {
     return numberOne + numberTwo;
@@ -68,7 +181,11 @@ function operate (numberOne, numberTwo, operator) {
     if (operator === "divide") {
         result = divide(numberOne, numberTwo);
     }
-
+    console.log(result);
+    numberOne = "";
+    numberTwo = "";
+    operator = "";
+    return [numberOne, numberTwo, operator];
 }
 
 
