@@ -37,7 +37,8 @@ const currentEqualsSign = document.querySelector("#current-equals-sign");
 
 
 zeroDigit.addEventListener("click", function (e) {
-    if (result != "") {
+    if (result != "") { //need to change the following so if result is not blank and a key a number key
+        //is pressed it replaces numberOne but we still want to save result (so maybe) use: if (result != "" && result != numberOne)
         currentResult.textContent = "";
         currentEqualsSign.setAttribute("style", "visibility: hidden");
     }
