@@ -352,8 +352,12 @@ function operate (numberOne, numberTwo, operator) {
     }
     currentOperations.textContent = numberOne + " " + operator + " " + numberTwo;
     currentEqualsSign.setAttribute("style", "visibility: visible");
-    currentResult.textContent = result;
-    numberOne = String(result);
+    currentResult.textContent = String(result).substring(0,9);
+    if (result == "ERROR: Calculator bursts into flames") {
+        numberOne = "0";
+    } else {
+        numberOne = String(result);
+    }
     numberTwo = "";
     operator = "";
     return [numberOne, numberTwo, operator, result];
