@@ -70,3 +70,6 @@ body {
 #current-equals-sign {
     visibility: hidden;
 }
+#delete-key {
+    visibility: hidden;
+}
