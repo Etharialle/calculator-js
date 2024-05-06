@@ -33,8 +33,14 @@ const currentEqualsSign = document.querySelector("#current-equals-sign");
 
 
 
-// TODO: prevent leading 0 unless second character is a "."
+// clear result display if button clicked and result is not blank
+
+
 zeroDigit.addEventListener("click", function (e) {
+    if (result != "") {
+        currentResult.textContent = "";
+        currentEqualsSign.setAttribute("style", "visibility: hidden");
+    }
     if (operator == "" && numberOne != "0") {
         numberOne = String(numberOne) + "0";
     } else if (operator != "" && numberTwo != "0") {
@@ -43,6 +49,10 @@ zeroDigit.addEventListener("click", function (e) {
     currentOperations.textContent = numberOne + " " + operator + " " + numberTwo;
 });
 oneDigit.addEventListener("click", function (e) {
+    if (result != "") {
+        currentResult.textContent = "";
+        currentEqualsSign.setAttribute("style", "visibility: hidden");
+    }
     if (operator == "") {
         numberOne = String(numberOne) + "1";
     } else {
@@ -52,6 +62,10 @@ oneDigit.addEventListener("click", function (e) {
 });
 
 twoDigit.addEventListener("click", function (e) {
+    if (result != "") {
+        currentResult.textContent = "";
+        currentEqualsSign.setAttribute("style", "visibility: hidden");
+    }
     if (operator == "") {
         numberOne = String(numberOne) + "2";
     } else {
@@ -61,6 +75,10 @@ twoDigit.addEventListener("click", function (e) {
 });
 
 threeDigit.addEventListener("click", function (e) {
+    if (result != "") {
+        currentResult.textContent = "";
+        currentEqualsSign.setAttribute("style", "visibility: hidden");
+    }
     if (operator == "") {
         numberOne = String(numberOne) + "3";
     } else {
@@ -70,6 +88,10 @@ threeDigit.addEventListener("click", function (e) {
 });
 
 fourDigit.addEventListener("click", function (e) {
+    if (result != "") {
+        currentResult.textContent = "";
+        currentEqualsSign.setAttribute("style", "visibility: hidden");
+    }
     if (operator == "") {
         numberOne = String(numberOne) + "4";
     } else {
@@ -79,6 +101,10 @@ fourDigit.addEventListener("click", function (e) {
 });
 
 fiveDigit.addEventListener("click", function (e) {
+    if (result != "") {
+        currentResult.textContent = "";
+        currentEqualsSign.setAttribute("style", "visibility: hidden");
+    }
     if (operator == "") {
         numberOne = String(numberOne) + "5";
     } else {
@@ -88,6 +114,10 @@ fiveDigit.addEventListener("click", function (e) {
 });
 
 sixDigit.addEventListener("click", function (e) {
+    if (result != "") {
+        currentResult.textContent = "";
+        currentEqualsSign.setAttribute("style", "visibility: hidden");
+    }
     if (operator == "") {
         numberOne = String(numberOne) + "6";
     } else {
@@ -97,6 +127,10 @@ sixDigit.addEventListener("click", function (e) {
 });
 
 sevenDigit.addEventListener("click", function (e) {
+    if (result != "") {
+        currentResult.textContent = "";
+        currentEqualsSign.setAttribute("style", "visibility: hidden");
+    }
     if (operator == "") {
         numberOne = String(numberOne) + "7";
     } else {
@@ -106,6 +140,10 @@ sevenDigit.addEventListener("click", function (e) {
 });
 
 eightDigit.addEventListener("click", function (e) {
+    if (result != "") {
+        currentResult.textContent = "";
+        currentEqualsSign.setAttribute("style", "visibility: hidden");
+    }
     if (operator == "") {
         numberOne = String(numberOne) + "8";
     } else {
@@ -115,6 +153,10 @@ eightDigit.addEventListener("click", function (e) {
 });
 
 nineDigit.addEventListener("click", function (e) {
+    if (result != "") {
+        currentResult.textContent = "";
+        currentEqualsSign.setAttribute("style", "visibility: hidden");
+    }
     if (operator == "") {
         numberOne = String(numberOne) + "9";
     } else {
@@ -123,9 +165,39 @@ nineDigit.addEventListener("click", function (e) {
     currentOperations.textContent = numberOne + " " + operator + " " + numberTwo;
 });
 
+decimalKey.addEventListener("click", function (e) {
+    if (result != "") {
+        currentResult.textContent = "";
+        currentEqualsSign.setAttribute("style", "visibility: hidden");
+    }
+    if (operator == "") {
+        if (numberOne.includes(".") === true) {
+            console.log(". already in number");
+        }
+        if (numberOne.includes(".") === false && numberOne == "") {
+            numberOne = "0.";
+        }
+        if (numberOne.includes(".") === false && numberOne != "") {
+            numberOne = String(numberOne) + ".";
+        }
+    }
+    if (operator != "") {
+        if (numberTwo.includes(".") === true) {
+            console.log(". already in number");
+        }
+        if (numberTwo.includes(".") === false && numberTwo == "") {
+            numberTwo = "0.";
+        }
+        if (numberTwo.includes(".") === false && numberTwo != "") {
+            numberTwo = String(numberTwo) + ".";
+        }
+    }
+    currentOperations.textContent = numberOne + " " + operator + " " + numberTwo;
+});
+
 // operations keys
 addKey.addEventListener("click", function (e) {
-    if (operator == "") {
+    if (operator == "" && numberOne != "") {
         operator = "+";
     } else {
         console.log("invalid input");
@@ -135,7 +207,7 @@ addKey.addEventListener("click", function (e) {
 });
 
 subtractKey.addEventListener("click", function (e) {
-    if (operator == "") {
+    if (operator == "" && numberOne != "") {
         operator = "-";
     } else {
         console.log("invalid input");
@@ -145,7 +217,7 @@ subtractKey.addEventListener("click", function (e) {
 });
 
 multiplyKey.addEventListener("click", function (e) {
-    if (operator == "") {
+    if (operator == "" && numberOne != "") {
         operator = "×";
     } else {
         console.log("invalid input");
@@ -155,7 +227,7 @@ multiplyKey.addEventListener("click", function (e) {
 });
 
 divideKey.addEventListener("click", function (e) {
-    if (operator == "") {
+    if (operator == "" && numberOne != "") {
         operator = "÷";
     } else {
         console.log("invalid input");
