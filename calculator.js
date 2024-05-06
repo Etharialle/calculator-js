@@ -23,7 +23,7 @@ const subtractKey = document.querySelector("#subtract-key");
 const multiplyKey = document.querySelector("#multiply-key");
 const divideKey = document.querySelector("#divide-key");
 const equalsKey = document.querySelector("#equals-key");
-
+const deleteKey = document.querySelector("#delete-key")
 const clearKey = document.querySelector("#clear-key");
 
 // display
@@ -294,6 +294,29 @@ clearKey.addEventListener("click", function (e) {
     currentEqualsSign.setAttribute("style", "visibility: hidden");
 });
 
+deleteKey.addEventListener("click", function (e) {
+    if (result != "") {
+        currentResult.textContent = "";
+        currentEqualsSign.setAttribute("style", "visibility: hidden");
+    }
+    if (operator == "") {
+        if (numberOne.length <= 1) {
+            numberOne = "";
+        } else {
+            numberOne = String(numberOne.substring(0, numberOne.length - 1));
+        }
+    } else if (operator != "" && numberTwo == "") {
+        operator = "";
+    } else if (operator != "") {
+        if (numberTwo.length <= 1) {
+            numberTwo = "";
+        } else {
+            numberTwo = String(numberTwo.substring(0, numberTwo.length - 1));
+        }
+    }
+    currentOperations.textContent = numberOne + " " + operator + " " + numberTwo;
+});
+
 // Math operations
 function add(numberOne, numberTwo) {
     return numberOne + numberTwo;
@@ -330,7 +353,7 @@ function operate (numberOne, numberTwo, operator) {
     currentOperations.textContent = numberOne + " " + operator + " " + numberTwo;
     currentEqualsSign.setAttribute("style", "visibility: visible");
     currentResult.textContent = result;
-    numberOne = result;
+    numberOne = String(result);
     numberTwo = "";
     operator = "";
     return [numberOne, numberTwo, operator, result];
