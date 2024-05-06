@@ -48,6 +48,7 @@ zeroDigit.addEventListener("click", function (e) {
     }
     currentOperations.textContent = numberOne + " " + operator + " " + numberTwo;
 });
+
 oneDigit.addEventListener("click", function (e) {
     if (result != "") {
         currentResult.textContent = "";
@@ -190,6 +191,28 @@ decimalKey.addEventListener("click", function (e) {
         }
         if (numberTwo.includes(".") === false && numberTwo != "") {
             numberTwo = String(numberTwo) + ".";
+        }
+    }
+    currentOperations.textContent = numberOne + " " + operator + " " + numberTwo;
+});
+
+plusMinusKey.addEventListener("click", function (e) {
+    if (result != "") {
+        currentResult.textContent = "";
+        currentEqualsSign.setAttribute("style", "visibility: hidden");
+    }
+    if (operator == "") {
+        if (numberOne.charAt(0) != "-") {
+            numberOne = String("-") + String(numberOne);
+        } else if (numberOne.charAt(0) == "-") {
+            numberOne = String(numberOne.substring(1));
+        }
+    }
+    if (operator != "") {
+        if (numberTwo.charAt(0) != "-") {
+            numberTwo = "-" + String(numberTwo);
+        } else if (numberTwo.charAt(0) == "-") {
+            numberTwo = String(numberTwo.substring(1));
         }
     }
     currentOperations.textContent = numberOne + " " + operator + " " + numberTwo;
