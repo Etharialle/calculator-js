@@ -67,3 +67,6 @@ body {
     display: flex;
     flex: 1 0 50%;
 }
+#current-equals-sign {
+    visibility: hidden;
+}

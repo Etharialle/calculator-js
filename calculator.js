@@ -2,6 +2,7 @@
 let numberOne = "";
 let numberTwo = "";
 let operator = "";
+let result = "";
 
 // Event Listeners
 // Declarations
@@ -25,8 +26,10 @@ const equalsKey = document.querySelector("#equals-key");
 
 const clearKey = document.querySelector("#clear-key");
 
-// document queries
-const currentStep = document.querySelector("#current-step");
+// display
+const currentOperations = document.querySelector("#current-operations");
+const currentResult = document.querySelector("#current-result");
+const currentEqualsSign = document.querySelector("#current-equals-sign");
 
 
 
@@ -34,12 +37,10 @@ const currentStep = document.querySelector("#current-step");
 zeroDigit.addEventListener("click", function (e) {
     if (operator == "" && numberOne != "0") {
         numberOne = String(numberOne) + "0";
-        console.log(numberOne);
     } else if (operator != "" && numberTwo != "0") {
         numberTwo = String(numberTwo) + "0";
-        console.log(numberTwo);
     }
-    currentStep.textContent = numberOne + " " + operator + " " + numberTwo;
+    currentOperations.textContent = numberOne + " " + operator + " " + numberTwo;
 });
 oneDigit.addEventListener("click", function (e) {
     if (operator == "") {
@@ -47,9 +48,7 @@ oneDigit.addEventListener("click", function (e) {
     } else {
         numberTwo = String(numberTwo) + "1";
     }
-    console.log(numberOne);
-    console.log(numberTwo);
-
+    currentOperations.textContent = numberOne + " " + operator + " " + numberTwo;
 });
 
 twoDigit.addEventListener("click", function (e) {
@@ -58,8 +57,7 @@ twoDigit.addEventListener("click", function (e) {
     } else {
         numberTwo = String(numberTwo) + "2";
     }
-    console.log(numberOne);
-    console.log(numberTwo);
+    currentOperations.textContent = numberOne + " " + operator + " " + numberTwo;
 });
 
 threeDigit.addEventListener("click", function (e) {
@@ -68,8 +66,7 @@ threeDigit.addEventListener("click", function (e) {
     } else {
         numberTwo = String(numberTwo) + "3";
     }
-    console.log(numberOne);
-    console.log(numberTwo);
+    currentOperations.textContent = numberOne + " " + operator + " " + numberTwo;
 });
 
 fourDigit.addEventListener("click", function (e) {
@@ -78,8 +75,7 @@ fourDigit.addEventListener("click", function (e) {
     } else {
         numberTwo = String(numberTwo) + "4";
     }
-    console.log(numberOne);
-    console.log(numberTwo);
+    currentOperations.textContent = numberOne + " " + operator + " " + numberTwo;
 });
 
 fiveDigit.addEventListener("click", function (e) {
@@ -88,8 +84,7 @@ fiveDigit.addEventListener("click", function (e) {
     } else {
         numberTwo = String(numberTwo) + "5";
     }
-    console.log(numberOne);
-    console.log(numberTwo);
+    currentOperations.textContent = numberOne + " " + operator + " " + numberTwo;
 });
 
 sixDigit.addEventListener("click", function (e) {
@@ -98,8 +93,7 @@ sixDigit.addEventListener("click", function (e) {
     } else {
         numberTwo = String(numberTwo) + "6";
     }
-    console.log(numberOne);
-    console.log(numberTwo);
+    currentOperations.textContent = numberOne + " " + operator + " " + numberTwo;
 });
 
 sevenDigit.addEventListener("click", function (e) {
@@ -108,8 +102,7 @@ sevenDigit.addEventListener("click", function (e) {
     } else {
         numberTwo = String(numberTwo) + "7";
     }
-    console.log(numberOne);
-    console.log(numberTwo);
+    currentOperations.textContent = numberOne + " " + operator + " " + numberTwo;
 });
 
 eightDigit.addEventListener("click", function (e) {
@@ -118,8 +111,7 @@ eightDigit.addEventListener("click", function (e) {
     } else {
         numberTwo = String(numberTwo) + "8";
     }
-    console.log(numberOne);
-    console.log(numberTwo);
+    currentOperations.textContent = numberOne + " " + operator + " " + numberTwo;
 });
 
 nineDigit.addEventListener("click", function (e) {
@@ -128,8 +120,7 @@ nineDigit.addEventListener("click", function (e) {
     } else {
         numberTwo = String(numberTwo) + "9";
     }
-    console.log(numberOne);
-    console.log(numberTwo);
+    currentOperations.textContent = numberOne + " " + operator + " " + numberTwo;
 });
 
 // operations keys
@@ -140,9 +131,7 @@ addKey.addEventListener("click", function (e) {
         console.log("invalid input");
         // possible remove this and just have it change the operator as long as numberOne is not ""
     }
-    console.log(numberOne);
-    console.log(operator);
-    console.log(numberTwo);
+    currentOperations.textContent = numberOne + " " + operator + " " + numberTwo;
 });
 
 subtractKey.addEventListener("click", function (e) {
@@ -152,9 +141,7 @@ subtractKey.addEventListener("click", function (e) {
         console.log("invalid input");
         // possible remove this and just have it change the operator as long as numberOne is not ""
     }
-    console.log(numberOne);
-    console.log(operator);
-    console.log(numberTwo);
+    currentOperations.textContent = numberOne + " " + operator + " " + numberTwo;
 });
 
 multiplyKey.addEventListener("click", function (e) {
@@ -164,9 +151,7 @@ multiplyKey.addEventListener("click", function (e) {
         console.log("invalid input");
         // possible remove this and just have it change the operator as long as numberOne is not ""
     }
-    console.log(numberOne);
-    console.log(operator);
-    console.log(numberTwo);
+    currentOperations.textContent = numberOne + " " + operator + " " + numberTwo;
 });
 
 divideKey.addEventListener("click", function (e) {
@@ -176,29 +161,26 @@ divideKey.addEventListener("click", function (e) {
         console.log("invalid input");
         // possible remove this and just have it change the operator as long as numberOne is not ""
     }
-    console.log(numberOne);
-    console.log(operator);
-    console.log(numberTwo);
+    currentOperations.textContent = numberOne + " " + operator + " " + numberTwo;
 });
 
 equalsKey.addEventListener("click", function (e) {
     if (operator != "" && numberOne != "" && numberTwo != "") {
-        [numberOne, numberTwo, operator] = operate(parseFloat(numberOne), parseFloat(numberTwo), operator);
+        [numberOne, numberTwo, operator, result] = operate(parseFloat(numberOne), parseFloat(numberTwo), operator);
     } else {
         console.log("invalid input");
         //possibly set numberTwo = numberOne if numberTwo ==""
     }
-    
 });
 
 clearKey.addEventListener("click", function (e) {
     numberOne = "";
     numberTwo = "";
     operator = "";
-    
-    console.log(numberOne);
-    console.log(operator);
-    console.log(numberTwo);
+    result = "";
+    currentResult.textContent = result;
+    currentOperations.textContent = "0";
+    currentEqualsSign.setAttribute("style", "visibility: hidden");
 });
 
 // Math operations
@@ -222,7 +204,6 @@ function divide(numberOne, numberTwo) {
 }
 
 function operate (numberOne, numberTwo, operator) {
-    let result;
     if (operator === "+") {
         result = add(numberOne, numberTwo);
     }
@@ -235,11 +216,13 @@ function operate (numberOne, numberTwo, operator) {
     if (operator === "÷") {
         result = divide(numberOne, numberTwo);
     }
-    console.log(result);
+    currentOperations.textContent = numberOne + " " + operator + " " + numberTwo;
+    currentEqualsSign.setAttribute("style", "visibility: visible");
+    currentResult.textContent = result;
     numberOne = "";
     numberTwo = "";
     operator = "";
-    return [numberOne, numberTwo, operator];
+    return [numberOne, numberTwo, operator, result];
 }
 
 
