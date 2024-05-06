@@ -25,13 +25,21 @@ const equalsKey = document.querySelector("#equals-key");
 
 const clearKey = document.querySelector("#clear-key");
 
+// document queries
+const currentStep = document.querySelector("#current-step");
+
+
 
 // TODO: prevent leading 0 unless second character is a "."
 zeroDigit.addEventListener("click", function (e) {
-    if (operator == "" && numberOne !== "0") {
+    if (operator == "" && numberOne != "0") {
         numberOne = String(numberOne) + "0";
         console.log(numberOne);
+    } else if (operator != "" && numberTwo != "0") {
+        numberTwo = String(numberTwo) + "0";
+        console.log(numberTwo);
     }
+    currentStep.textContent = numberOne + " " + operator + " " + numberTwo;
 });
 oneDigit.addEventListener("click", function (e) {
     if (operator == "") {
@@ -41,6 +49,7 @@ oneDigit.addEventListener("click", function (e) {
     }
     console.log(numberOne);
     console.log(numberTwo);
+
 });
 
 twoDigit.addEventListener("click", function (e) {
@@ -126,7 +135,7 @@ nineDigit.addEventListener("click", function (e) {
 // operations keys
 addKey.addEventListener("click", function (e) {
     if (operator == "") {
-        operator = "add";
+        operator = "+";
     } else {
         console.log("invalid input");
         // possible remove this and just have it change the operator as long as numberOne is not ""
@@ -138,7 +147,7 @@ addKey.addEventListener("click", function (e) {
 
 subtractKey.addEventListener("click", function (e) {
     if (operator == "") {
-        operator = "subtract";
+        operator = "-";
     } else {
         console.log("invalid input");
         // possible remove this and just have it change the operator as long as numberOne is not ""
@@ -150,7 +159,7 @@ subtractKey.addEventListener("click", function (e) {
 
 multiplyKey.addEventListener("click", function (e) {
     if (operator == "") {
-        operator = "multiply";
+        operator = "×";
     } else {
         console.log("invalid input");
         // possible remove this and just have it change the operator as long as numberOne is not ""
@@ -162,7 +171,7 @@ multiplyKey.addEventListener("click", function (e) {
 
 divideKey.addEventListener("click", function (e) {
     if (operator == "") {
-        operator = "divide";
+        operator = "÷";
     } else {
         console.log("invalid input");
         // possible remove this and just have it change the operator as long as numberOne is not ""
@@ -214,16 +223,16 @@ function divide(numberOne, numberTwo) {
 
 function operate (numberOne, numberTwo, operator) {
     let result;
-    if (operator === "add") {
+    if (operator === "+") {
         result = add(numberOne, numberTwo);
     }
-    if (operator === "subtract") {
+    if (operator === "-") {
         result = subtract(numberOne, numberTwo);
     }
-    if (operator === "multiply") {
+    if (operator === "×") {
         result = multiply(numberOne, numberTwo);
     }
-    if (operator === "divide") {
+    if (operator === "÷") {
         result = divide(numberOne, numberTwo);
     }
     console.log(result);
