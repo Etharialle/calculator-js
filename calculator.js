@@ -220,6 +220,10 @@ plusMinusKey.addEventListener("click", function (e) {
 
 // operations keys
 addKey.addEventListener("click", function (e) {
+    if (result != "") {
+        currentResult.textContent = "";
+        currentEqualsSign.setAttribute("style", "visibility: hidden");
+    }
     if (operator == "" && numberOne != "") {
         operator = "+";
     } else {
@@ -230,6 +234,10 @@ addKey.addEventListener("click", function (e) {
 });
 
 subtractKey.addEventListener("click", function (e) {
+    if (result != "") {
+        currentResult.textContent = "";
+        currentEqualsSign.setAttribute("style", "visibility: hidden");
+    }
     if (operator == "" && numberOne != "") {
         operator = "-";
     } else {
@@ -240,6 +248,10 @@ subtractKey.addEventListener("click", function (e) {
 });
 
 multiplyKey.addEventListener("click", function (e) {
+    if (result != "") {
+        currentResult.textContent = "";
+        currentEqualsSign.setAttribute("style", "visibility: hidden");
+    }
     if (operator == "" && numberOne != "") {
         operator = "×";
     } else {
@@ -250,6 +262,10 @@ multiplyKey.addEventListener("click", function (e) {
 });
 
 divideKey.addEventListener("click", function (e) {
+    if (result != "") {
+        currentResult.textContent = "";
+        currentEqualsSign.setAttribute("style", "visibility: hidden");
+    }
     if (operator == "" && numberOne != "") {
         operator = "÷";
     } else {
@@ -314,7 +330,7 @@ function operate (numberOne, numberTwo, operator) {
     currentOperations.textContent = numberOne + " " + operator + " " + numberTwo;
     currentEqualsSign.setAttribute("style", "visibility: visible");
     currentResult.textContent = result;
-    numberOne = "";
+    numberOne = result;
     numberTwo = "";
     operator = "";
     return [numberOne, numberTwo, operator, result];
