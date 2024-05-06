@@ -23,6 +23,8 @@ const multiplyKey = document.querySelector("#multiply-key");
 const divideKey = document.querySelector("#divide-key");
 const equalsKey = document.querySelector("#equals-key");
 
+const clearKey = document.querySelector("#clear-key");
+
 
 // TODO: prevent leading 0 unless second character is a "."
 zeroDigit.addEventListener("click", function (e) {
@@ -122,12 +124,45 @@ nineDigit.addEventListener("click", function (e) {
 });
 
 // operations keys
-
-
-
 addKey.addEventListener("click", function (e) {
     if (operator == "") {
         operator = "add";
+    } else {
+        console.log("invalid input");
+        // possible remove this and just have it change the operator as long as numberOne is not ""
+    }
+    console.log(numberOne);
+    console.log(operator);
+    console.log(numberTwo);
+});
+
+subtractKey.addEventListener("click", function (e) {
+    if (operator == "") {
+        operator = "subtract";
+    } else {
+        console.log("invalid input");
+        // possible remove this and just have it change the operator as long as numberOne is not ""
+    }
+    console.log(numberOne);
+    console.log(operator);
+    console.log(numberTwo);
+});
+
+multiplyKey.addEventListener("click", function (e) {
+    if (operator == "") {
+        operator = "multiply";
+    } else {
+        console.log("invalid input");
+        // possible remove this and just have it change the operator as long as numberOne is not ""
+    }
+    console.log(numberOne);
+    console.log(operator);
+    console.log(numberTwo);
+});
+
+divideKey.addEventListener("click", function (e) {
+    if (operator == "") {
+        operator = "divide";
     } else {
         console.log("invalid input");
         // possible remove this and just have it change the operator as long as numberOne is not ""
@@ -145,6 +180,16 @@ equalsKey.addEventListener("click", function (e) {
         //possibly set numberTwo = numberOne if numberTwo ==""
     }
     
+});
+
+clearKey.addEventListener("click", function (e) {
+    numberOne = "";
+    numberTwo = "";
+    operator = "";
+    
+    console.log(numberOne);
+    console.log(operator);
+    console.log(numberTwo);
 });
 
 // Math operations
